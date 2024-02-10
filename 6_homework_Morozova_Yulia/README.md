@@ -17,8 +17,37 @@
 
 >**1. Настройте выполнение контрольной точки раз в 30 секунд.**
 
+Проверяю текущее значение командой ``checkpoint_timeout``:
 
+```sql
+  select name, setting, unit, context from pg_settings where name = 'checkpoint_timeout';
+```
+  ![1_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/5e71cd77-70b8-4287-817f-d9819f03d938)
 
+Устанавливаю таймаут 30 сек. контрольной точки командой:
+
+```sql
+  alter system set checkpoint_timeout to '30s';
+```
+
+  ![1_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/cc398446-10ff-4914-a6e3-b56769215f7e)
+
+Так как изменение этого параметра требует обновить (перечитать) конфигурацию (значение поля ``context`` вижу, что``sighup``), то выполняю команду:
+
+```sql
+  SELECT pg_reload_conf();
+```
+
+  ![1_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/b07236eb-46ab-4405-8384-3839da657ac3)
+
+И снова проверяю текущее значение командой ``checkpoint_timeout``, все ок:
+
+```sql
+  select name, setting, unit, context from pg_settings where name = 'checkpoint_timeout';
+```
+
+  ![1_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7d67094c-f69a-43dc-994e-9a7dbfffc53f)
+  
 <br/>
 
 >**2. 10 минут c помощью утилиты pgbench подавайте нагрузку.**
