@@ -52,6 +52,39 @@
 
 >**2. 10 минут c помощью утилиты pgbench подавайте нагрузку.**
 
+Создаю для тестов БД ``wal_test`` командой:
+
+```sql
+  CREATE DATABASE wal_test;
+```
+
+![2_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/52dc566d-2604-4d45-88b8-3d2e37180292)
+
+Инициализирую ``pgbench`` командой: 
+
+``pgbench -i wal_test;``
+
+  ![2_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/0f49294d-6c3c-4688-a2d1-f08ed9d32476)
+
+Сбрасываю статистику ``bgwriter`` командой:
+
+```sql
+  select pg_stat_reset_shared('bgwriter');
+```
+
+  ![2_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a7854ea9-8631-40f2-a981-1273eb1c581e)
+
+Смотрю ``lsn`` (позицию в журнале) до нагрузки командой:
+
+```sql
+  SELECT pg_current_wal_insert_lsn();
+```
+
+  ![2_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/c1845d32-c9bb-48a5-83f8-fe5bb3a7ac3c)
+
+
+
+
 
 
 <br/>
@@ -83,59 +116,6 @@
 
 
 
->**7. Что изменилось и почему?**
-
-Наблюдаю значительный прирост производительности: увеличение порядка 25-26% показателя tps(показатель пропускной способности БД - показывает количество транзакций, обработанных базой за одну секунду) и так же вижу снижение latency почти на 20% (время выполнения для каждого оператора).
-<br>Этот прирост объясняю тем, что postgres настроен теперь более оптимально и согласно текущей конфигурации оборудования (увеличен буффер разделяемой памяти, доступной серверу, увеличен дисковый кеш запроса, увеличен maintenance_work_mem, увеличено допустимое число параллельных операций ввода/вывода). 
-
-То есть новые настройки позволят нам использовать оба ядра, больше памяти для сортировки, больше дискового кеша для запросов, возможность эффективной параллельной работы.
-
-<br/> 
-
->**8. Создать таблицу с текстовым полем и заполнить случайными или сгенерированными данным в размере 1млн строк**
-
-выполняю скриптом:
-```sql
-  CREATE TABLE test_autovacuum(txt_data text);
-  INSERT INTO test_autovacuum(txt_data) SELECT substr(md5(random()::text), 0, 10) FROM generate_series(1,1000000);
-```
-
-  ![8_12](https://github.com/Y-M-Morozova/8_homework_Morozova_Yulia/assets/153178571/bb09d985-a57c-4674-a619-8de299c0fd97)
-
-<br/>
-
->**9. Посмотреть размер файла с таблицей**
-
-выполняю командой:
-```sql
-  select pg_size_pretty(pg_total_relation_size('test_autovacuum'));
-```
-
-  ![9_12](https://github.com/Y-M-Morozova/8_homework_Morozova_Yulia/assets/153178571/e02b30f0-c7a4-4849-a5a0-db4ff8da4346)
-
-<br/>
-
->**10. 5 раз обновить все строчки и добавить к каждой строчке любой символ**
-
-сначала обновляю 5 раз все строки, для этого запускаю 5 раз команду:
-
-```sql
-  UPDATE test_autovacuum SET txt_data = md5(random()::text);
-```
-  
-  ![9_2](https://github.com/Y-M-Morozova/8_homework_Morozova_Yulia/assets/153178571/69ca2d38-e899-43f2-b4e9-091a9834711a)
-
-а теперь добавляю к каждой строке любой символ командой:
-
-```sql
-  UPDATE test_autovacuum SET txt_data = txt_data || substr(md5(random()::text), 1, 1);
-```
-
-  ![9_3](https://github.com/Y-M-Morozova/8_homework_Morozova_Yulia/assets/153178571/36a38725-6669-4952-855b-dfed2006509f)
-
-<br/>
-
-<br/>  
 
 
 ***
@@ -146,23 +126,6 @@
 
 **Выполнение:**
 
-текст процедуры:
-
-```sql
-  DO
-  $do$
-  DECLARE
-     i int;
-  BEGIN
-     FOR i IN 1..10 LOOP
- 	  UPDATE test_autovacuum SET txt_data = md5(random()::text);
-      	  raise info 'номер шага цикла: %', i;
-     END LOOP;
-  END
-  $do$;
-```
-
-  ![20_1](https://github.com/Y-M-Morozova/8_homework_Morozova_Yulia/assets/153178571/5ef80c2e-7ffe-46d0-9a7a-95dbcbed325c)
 
 ***
 
