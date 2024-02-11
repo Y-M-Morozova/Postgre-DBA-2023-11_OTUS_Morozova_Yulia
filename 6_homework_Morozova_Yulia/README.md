@@ -86,8 +86,9 @@
 
 ```pgbench -c8 -P 6 -T 600 wal_test```
 
+  ![2_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/3c31bf41-322f-4b0a-b9ad-ea21c2cfe6a8)
 
-
+  ![2_6](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/b3ab90cc-635d-4974-aa54-4652903b4c85)
 
 <br/>
 
