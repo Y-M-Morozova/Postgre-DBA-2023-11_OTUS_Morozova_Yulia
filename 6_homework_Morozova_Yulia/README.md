@@ -82,7 +82,9 @@
 
   ![2_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/c1845d32-c9bb-48a5-83f8-fe5bb3a7ac3c)
 
+Запускаю нагрузочное тестирование согласно заданию на 10 мин командой:
 
+```pgbench -c8 -P 6 -T 600 wal_test```
 
 
 
