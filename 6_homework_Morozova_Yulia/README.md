@@ -94,6 +94,21 @@
 
 >**3. Измерьте, какой объем журнальных файлов был сгенерирован за это время. Оцените, какой объем приходится в среднем на одну контрольную точку.**
 
+Смотрю ``lsn`` (позицию в журнале) после нагрузки командой:
+
+```sql
+  SELECT pg_current_wal_insert_lsn();
+```
+
+  ![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/946069a2-ddcd-4619-b91a-50aaa0299c9c)
+
+Смотрю какой объем журнальных файлов был сгенерирован за это время командой:
+
+```sql
+  SELECT pg_size_pretty('0/20557598'::pg_lsn - '0/25DA440'::pg_lsn);
+```
+
+  ![3_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/c1613999-e02a-4d7c-8400-1d224e3b64ba)
 
 
   <br/>
