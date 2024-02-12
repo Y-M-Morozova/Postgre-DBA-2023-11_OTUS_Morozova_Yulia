@@ -189,10 +189,18 @@ Cмотрю статистику командой:
 
 <br/> 
 
+Далее создаю новый кластер ``test`` с включенной контрольной суммой страниц, обновляю конфигурацию системы, стартую новый кластер и проверяю,  командами:
 
+``sudo -u postgres pg_createcluster -D /var/lib/postgresql/15/test 15 test -- --data-checksums``
+<br>``sudo systemctl daemon-reload``
+<br>``sudo pg_ctlcluster 15 test start``
+<br>``sudo pg_lsclusters``
 
+  ![6_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/b929d8c8-25f2-4804-94f5-9d313485847d)
 
+  ![6_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e6e23c02-211c-400a-a250-b67b2df9e4f5)
 
+  
 
 ***
 **<h3> Задание со * :
