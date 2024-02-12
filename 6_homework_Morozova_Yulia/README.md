@@ -200,7 +200,7 @@ Cмотрю статистику командой:
 
   ![6_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e6e23c02-211c-400a-a250-b67b2df9e4f5)
 
-Далее я подключаюсь к новому кластеру ``test`` (порт 5433)с помощью команды ``psql -p 5433``, создаю там таблицу ``test`` и вставляю и проверяю 10 строк, выполняю это командами:
+Далее я подключаюсь к новому кластеру ``test`` (порт 5433)с помощью команды ``psql -p 5433``, создаю там таблицу ``test``, вставляю и проверяю 10 строк, выполняю это командами:
 
 ```sql
   create table test(i int);  
@@ -210,8 +210,19 @@ Cмотрю статистику командой:
 
   ![6_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/5daa88bd-f0b2-4266-a603-6b2bb7f8557a)
 
+теперь определяю файл таблицы ``test`` командой:
 
-  
+```sql
+  SELECT pg_relation_filepath('test');  
+```
+
+  ![6_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e314931b-ad0f-47ef-8bdb-89e58c973ad7)
+
+выключаю кластер ``test``командой: ``sudo pg_ctlcluster 15 test start`` , проверяю, все ок:
+
+  ![6_6](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/0d8fb94b-08f7-4040-8780-d2341820624b)
+
+
 <br/> 
 ***
 **<h3> Задание со * :
