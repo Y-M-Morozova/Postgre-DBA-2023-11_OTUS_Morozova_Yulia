@@ -200,8 +200,19 @@ Cмотрю статистику командой:
 
   ![6_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e6e23c02-211c-400a-a250-b67b2df9e4f5)
 
-  
+Далее я подключаюсь к новому кластеру ``test`` (порт 5433)с помощью команды ``psql -p 5433``, создаю там таблицу ``test`` и вставляю и проверяю 10 строк, выполняю это командами:
 
+```sql
+  create table test(i int);  
+  insert into test values (1),(2),(3),(4),(5),(6),(7),(8),(9),(10);
+  select * from test;  
+```
+
+  ![6_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/5daa88bd-f0b2-4266-a603-6b2bb7f8557a)
+
+
+  
+<br/> 
 ***
 **<h3> Задание со * :
 <br>Написать анонимную процедуру, в которой в цикле 10 раз обновятся все строчки в искомой таблице.
