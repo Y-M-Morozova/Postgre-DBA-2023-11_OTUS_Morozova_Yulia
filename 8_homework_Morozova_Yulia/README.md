@@ -17,13 +17,22 @@
 
 >**1. Развернуть виртуальную машину любым удобным способом**
 
+Для этого задания создала новую ВМ В ЯО с параметрами:
+​CPU: 2, RAM: 4 ГБ, Объём дискового пространства: 10 ГБ (SSD):
 
+  ![1_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/8b717521-fcfe-45de-85bc-35c8d5e2405c)
 
 <br/>
 
 >**2. Поставить на неё PostgreSQL 15 любым способом**
 
+Установила PostgreSQL 15й версии скриптом:
 
+``sudo apt update && sudo apt upgrade -y -q && sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - && sudo apt-get update && sudo apt -y install postgresql-15``
+
+  ![2_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/302d207a-7d58-494e-9171-eb3e473556f6)
+
+  ![2_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/30548391-8ad6-4c88-a998-134a8326c840)
 
 <br/>
 
