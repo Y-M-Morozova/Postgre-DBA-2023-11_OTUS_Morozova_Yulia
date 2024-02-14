@@ -38,9 +38,17 @@
 
 >**3. настроить кластер PostgreSQL 15 на максимальную производительность не обращая внимание на возможные проблемы с надежностью в случае аварийной перезагрузки виртуальной машины**
 
+Перед настройкой кластера принимаю решение сделать тест на производительность с дефольными настройками Postgres, поэтому сначала инициализирую ``pgbench``:
 
+  ![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a8abd872-219b-47d5-b749-33079e81c861)
 
-  <br/>
+И провожу тестирование на настройках Postgres по умолчанию командой:
+
+``sudo -u postgres pgbench -c 50 -j 2 -P 10 -T 60 benchmark``
+
+  ![3_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/70ad4f57-d1f9-4bea-b6c7-632b02dfff1b)
+
+<br/>
 
 >**4. Нагрузить кластер через утилиту через утилиту pgbench (https://postgrespro.ru/docs/postgrespro/14/pgbench)**
 
