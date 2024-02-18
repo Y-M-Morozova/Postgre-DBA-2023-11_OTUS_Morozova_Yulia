@@ -113,9 +113,13 @@ parallel_leader_participation = on
 
 >**4. Нагрузить кластер через утилиту через утилиту pgbench (https://postgrespro.ru/docs/postgrespro/14/pgbench)**
 
+И снова провожу тестирование с помощью ``pgbench``, но уже на новых настройках Postgres  командой:
 
+``sudo -u postgres pgbench -c 50 -j 2 -P 10 -T 60 benchmark``
 
-  <br/>
+  ![5_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7d47b59b-97ca-42b9-8ad7-b5e4b01690df)
+
+<br/>
 
 >**5. Написать какого значения tps удалось достичь, показать какие параметры в какие значения устанавливали и почему**
 
