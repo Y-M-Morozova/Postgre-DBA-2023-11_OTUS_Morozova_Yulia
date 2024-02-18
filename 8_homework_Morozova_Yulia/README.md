@@ -142,5 +142,11 @@ parallel_leader_participation = on
 
 **Выполнение:**
 
+1. Устанавливаю ``sysbench`` командами:
+
+``$ curl -s https://packagecloud.io/install/repositories/akopytov/sysbench/script.deb.sh | sudo bash``
+<br>``$ sudo apt -y install sysbench``
+
+2. 
 
 ***
