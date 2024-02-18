@@ -52,7 +52,7 @@
 
 <br/>
 
-Теперь согласно заданию, настраиваю кластер PostgreSQL на максимальную производительность, используя сайт: https://pgconfigurator.cybertec.at/ , где вношу параметры моей ВМ: **CPU: 2, RAM: 4 ГБ, Объём дискового пространства: 10 ГБ (SSD):** и получаю рекомендации для настройки:
+Теперь согласно заданию, настраиваю кластер PostgreSQL на максимальную производительность, используя сайт: https://pgconfigurator.cybertec.at/ , где вношу параметры моей ВМ: **CPU: 2, RAM: 4 ГБ, Объём дискового пространства: 10 ГБ (SSD)** , так же принимаю решение поставить ``fsync = off`` и получаю во такой список параметров:
 
 ```
 -- Connectivity
@@ -98,6 +98,18 @@ max_parallel_maintenance_workers = 1
 max_parallel_workers = 2
 parallel_leader_participation = on
 ```
+
+Далее я создаю файл ``pgconfigurator.conf`` в каталоге ``/etc/postgresql/15/main/conf.d/``, куда записываю все эти параметры, командой:
+
+``nano /etc/postgresql/15/main/conf.d/pgconfigurator.conf``
+
+далее рестартую сервер(так как есть параметры, которые для применения требуют рестарта сервера, например ``shared_buffers``, все ок:
+
+  ![4_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/f3fbbd97-785b-48f2-965d-a53715d6072b)
+
+  ![4_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/43b80e68-9975-4cd8-8d71-baf615be6e79)
+
+
 
 >**4. Нагрузить кластер через утилиту через утилиту pgbench (https://postgrespro.ru/docs/postgrespro/14/pgbench)**
 
