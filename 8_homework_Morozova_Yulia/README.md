@@ -147,6 +147,8 @@ parallel_leader_participation = on
 ``$ curl -s https://packagecloud.io/install/repositories/akopytov/sysbench/script.deb.sh | sudo bash``
 <br>``$ sudo apt -y install sysbench``
 
+  ![6_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7c59b9d2-4280-4abf-bb02-d077c6251919)
+
 2. 
 
 ***
