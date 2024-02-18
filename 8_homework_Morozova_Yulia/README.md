@@ -52,6 +52,53 @@
 
 <br/>
 
+Теперь согласно заданию, настраиваю кластер PostgreSQL на максимальную производительность, используя сайт: https://pgconfigurator.cybertec.at/ , где вношу параметры моей ВМ: **CPU: 2, RAM: 4 ГБ, Объём дискового пространства: 10 ГБ (SSD):** и получаю рекомендации для настройки:
+
+```
+-- Connectivity
+max_connections = 100
+superuser_reserved_connections = 3
+
+-- Memory Settings
+shared_buffers = '1024 MB'
+work_mem = '32 MB'
+maintenance_work_mem = '320 MB'
+huge_pages = off
+effective_cache_size = '3 GB'
+effective_io_concurrency = 100 # concurrent IO only really activated if OS supports posix_fadvise function
+random_page_cost = 1.25 # speed of random disk access relative to sequential access (1.0)
+
+-- Replication
+wal_level = minimal # consider using at least 'replica'
+max_wal_senders = 0
+synchronous_commit = off
+fsync = off
+
+-- Checkpointing:
+checkpoint_timeout = '15 min'
+checkpoint_completion_target = 0.9
+max_wal_size = '1024 MB'
+min_wal_size = '512 MB'
+
+-- WAL writing
+wal_compression = off
+wal_buffers = -1 # auto-tuned by Postgres till maximum of segment size (16MB by default)
+
+
+-- Background writer
+bgwriter_delay = 200ms
+bgwriter_lru_maxpages = 100
+bgwriter_lru_multiplier = 2.0
+bgwriter_flush_after = 0
+
+-- Parallel queries:
+max_worker_processes = 2
+max_parallel_workers_per_gather = 1
+max_parallel_maintenance_workers = 1
+max_parallel_workers = 2
+parallel_leader_participation = on
+```
+
 >**4. Нагрузить кластер через утилиту через утилиту pgbench (https://postgrespro.ru/docs/postgrespro/14/pgbench)**
 
 
