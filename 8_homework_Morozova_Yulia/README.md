@@ -130,14 +130,13 @@ parallel_leader_participation = on
 Отключение fsync часто даёт выигрыш в скорости, но это может привести к неисправимой порче данных в случае отключения питания или сбоя системы. Поэтому отключать fsync рекомендуется, только если вы легко сможете восстановить всю базу из внешнего источника. (https://postgrespro.ru/docs/postgresql/15/runtime-config-wal)
 
 <br/>
-  
-
-
 
 ***
 **<h3> Задание со * :**
 <br>аналогично протестировать через утилиту https://github.com/Percona-Lab/sysbench-tpcc 
 <br>(требует установки https://github.com/akopytov/sysbench)
+</h3>
+
 ***
 
 **Выполнение:**
@@ -149,6 +148,15 @@ parallel_leader_participation = on
 
   ![6_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7c59b9d2-4280-4abf-bb02-d077c6251919)
 
-2. 
+<br/>
+
+2. Клонирую скрипты sysbench-tpcc командой:
+ 
+``git clone https://github.com/Percona-Lab/sysbench-tpcc``
+
+  ![6_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/097d7bd2-733e-46e1-b7d5-0e14c18b878f)
+
+<br/>
+
 
 ***
