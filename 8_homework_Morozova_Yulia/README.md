@@ -135,7 +135,7 @@ parallel_leader_participation = on
 
 
 ***
-**<h3> Задание со * :
+**<h3> Задание со * :**
 <br>аналогично протестировать через утилиту https://github.com/Percona-Lab/sysbench-tpcc 
 <br>(требует установки https://github.com/akopytov/sysbench)
 ***
