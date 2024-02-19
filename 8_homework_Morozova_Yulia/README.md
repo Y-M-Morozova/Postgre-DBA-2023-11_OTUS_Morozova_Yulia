@@ -158,7 +158,7 @@ parallel_leader_participation = on
 
 <br/>
 
-3. Cозда. базу данных ``sbtest`` для тестов и смотрю её размер командами:
+3. Cоздаю базу данных ``sbtest`` для тестов и смотрю её размер командами:
 
 ```sql  
   create database sbtest;
@@ -166,6 +166,13 @@ parallel_leader_participation = on
 ```
 
   ![7_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/3ecc3787-5f4a-4517-becb-c6e2fb22534d)
+
+<br/>
+
+4. запускаю тест на дефолтной конфигурации PostgreSQL 15й версии командой:
+
+``./tpcc.lua --pgsql-host=127.0.0.1 --pgsql-user=postgres --pgsql-password=postgres --pgsql-db=sbtest --time=600 --report-interval=1 --tables=10 --scale=10 --use_fk=0 --trx_level=RC --db-driver=pgsql run``
+
 
 
 
