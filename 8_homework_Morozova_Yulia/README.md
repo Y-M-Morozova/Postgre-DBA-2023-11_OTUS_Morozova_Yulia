@@ -173,6 +173,11 @@ parallel_leader_participation = on
 
 ``./tpcc.lua --pgsql-host=127.0.0.1 --pgsql-user=postgres --pgsql-password=postgres --pgsql-db=sbtest --time=600 --report-interval=1 --tables=10 --scale=10 --use_fk=0 --trx_level=RC --db-driver=pgsql run``
 
+  ![7_7](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7872b21c-e551-421f-be2a-be33134cbd49)
+
+получаю результат:
+
+  ![7_9](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e338c38c-1980-42b4-9814-b2ed329146cc)
 
 
 
