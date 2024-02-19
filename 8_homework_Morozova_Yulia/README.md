@@ -169,17 +169,19 @@ parallel_leader_participation = on
 
 <br/>
 
-4. запускаю тест на дефолтной конфигурации PostgreSQL 15й версии командой:
+4. запускаю тест сначала на дефолтной конфигурации postgreSQL 15й версии , а потом на новых настройках postgres(возвращаю файл ``/etc/postgresql/15/main/conf.d/pgconfigurator.conf``),тесты ``sysbench-tpcc`` выполняю командой командой:
 
 ``./tpcc.lua --pgsql-host=127.0.0.1 --pgsql-user=postgres --pgsql-password=postgres --pgsql-db=sbtest --time=600 --report-interval=1 --tables=10 --scale=10 --use_fk=0 --trx_level=RC --db-driver=pgsql run``
 
-  ![7_7](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7872b21c-e551-421f-be2a-be33134cbd49)
+  
+и вижу, что так же на тестах ``sysbench-tpcc`` есть прирост производительности(здесь порядка в 1.5 раза на оптимизрованных настройках), по всем показателям: чтение, запись, tps:
 
-получаю результат:
+на дефолтных настройках результат:
+  
+  ![7_9](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e6e5240c-1253-4875-9468-6c2e5f4dfa99)
+  
+на оптимизированных настройках результат:
 
-  ![7_9](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e338c38c-1980-42b4-9814-b2ed329146cc)
-
-
-
-
+  ![7_10](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/85b50848-3a01-4851-84dd-b1f351d26cc5)
+ 
 ***
