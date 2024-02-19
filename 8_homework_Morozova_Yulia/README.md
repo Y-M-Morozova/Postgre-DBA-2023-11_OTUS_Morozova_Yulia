@@ -158,5 +158,16 @@ parallel_leader_participation = on
 
 <br/>
 
+3. Cозда. базу данных ``sbtest`` для тестов и смотрю её размер командами:
+
+```sql  
+  create database sbtest;
+  select datname, pg_size_pretty(pg_database_size(datname)) as "DB_Size" from pg_stat_database where datname = 'sbtest';
+```
+
+  ![7_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/3ecc3787-5f4a-4517-becb-c6e2fb22534d)
+
+
+
 
 ***
