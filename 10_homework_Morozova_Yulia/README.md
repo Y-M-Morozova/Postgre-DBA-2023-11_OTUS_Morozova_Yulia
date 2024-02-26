@@ -21,7 +21,10 @@
 
   ![0_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a9b1098c-99bc-4f43-887b-5b4617354eae)
 
-- На ВМ устанавливаю Postgres 15й версии и устанавливаю пароль для пользователя postgres: ``\password`` -- otus_replica_test_1234567 
+- На ВМ устанавливаю Postgres 15й версии и устанавливаю пароль для пользователя postgres: ``\password`` -- otus_replica_test_1234567
+
+  ![0_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/0e0c49b8-cdc4-482e-b0f0-d2328a675c6f)
+  
   
 >**1. На 1 ВМ создаем таблицы test для записи, test2 для запросов на чтение.**
 
