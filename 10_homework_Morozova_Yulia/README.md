@@ -61,9 +61,16 @@
 
 >**2. Создаем публикацию таблицы test и подписываемся на публикацию таблицы test2 с ВМ №2.**
 
+  На 1й ВМ добавляю тестовые данные в таблицу ``test`` и создаю публикацию этой таблицы:
 
+  ```sql
+    insert into test
+    select generate_series(1,10) as id,
+    md5(random()::text)::char(10) as txt;
+    create publication test_pub for table test;
+  ```
 
-
+  ![2_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/b180dbe2-4062-460c-8dd7-ac286fa2d958)
 
 <br/>
 
