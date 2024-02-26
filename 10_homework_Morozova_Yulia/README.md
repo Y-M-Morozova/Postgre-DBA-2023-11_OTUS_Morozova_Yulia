@@ -16,7 +16,8 @@
 
 **Подготвительные работы**
 
-- Создала в ЯО три ВМ: otus-db-pg-vm-10-1 [158.160.128.224], otus-db-pg-vm-10-2 [158.160.145.254], otus-db-pg-vm-10-3 [158.160.141.114]:
+- Создала в ЯО три ВМ:
+  </br>otus-db-pg-vm-10-1 [158.160.128.224], otus-db-pg-vm-10-2 [158.160.145.254], otus-db-pg-vm-10-3 [158.160.141.114]:
 
   ![0_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a9b1098c-99bc-4f43-887b-5b4617354eae)
   
