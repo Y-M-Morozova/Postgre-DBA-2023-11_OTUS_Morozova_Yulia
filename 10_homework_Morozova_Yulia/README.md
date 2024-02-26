@@ -16,7 +16,7 @@
 
 **Подготвительные работы**
 
-- Создала в ЯО три ВМ:
+- Создаю в ЯО три ВМ:
   </br>otus-db-pg-vm-10-1 [158.160.128.224], otus-db-pg-vm-10-2 [158.160.145.254], otus-db-pg-vm-10-3 [158.160.141.114]:
 
   ![0_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a9b1098c-99bc-4f43-887b-5b4617354eae)
@@ -25,7 +25,13 @@
 
   ![0_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/0e0c49b8-cdc4-482e-b0f0-d2328a675c6f)
   
-  
+- Устанавливаю уроверь репликации и настраиваю прослушивание входящих IP-адресов командами:
+
+  ``alter system set wal_level to 'logical';``
+  </br>``alter system set listen_addresses to '*';``
+
+    ![0_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7fc4cb65-bbfc-40c1-a00e-0fc06f31d92e)
+   
 >**1. На 1 ВМ создаем таблицы test для записи, test2 для запросов на чтение.**
 
 
