@@ -38,11 +38,24 @@
 
     ![0_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a4909b7d-f828-46b3-9cd2-c91be3905871)
 
-- Далее рестартую на всех нодах для применения параметров Postgres :   ``sudo pg_ctlcluster 15 main restart``   
-   
+- Далее рестартую на всех нодах для применения параметров Postgres :   ``sudo pg_ctlcluster 15 main restart``
+
+<br/>  
+
+***
+
+<br/>
+
 >**1. На 1 ВМ создаем таблицы test для записи, test2 для запросов на чтение.**
 
+  На 1й ВМ создаю таблицы:
 
+  ```sql
+    create table test (id int, txt char(10));
+    create table test2 (id int, txt char(10));
+  ```
+
+  ![1_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/9cbdad12-7a8e-4a68-8a69-fdbead8f8868)
 
 <br/>
 
