@@ -31,6 +31,14 @@
   </br>``alter system set listen_addresses to '*';``
 
     ![0_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7fc4cb65-bbfc-40c1-a00e-0fc06f31d92e)
+
+- В файлах конфигурации ``pg_hba.conf`` прописываю ip-адреса. На 1й ВМ прописываю ip-адреса 2й и 3й виртуальных машин, а на второй - для 1й ВМ и 3й ВМ,  в редакторе : ``nano /etc/postgresql/15/main/pg_hba.conf``:
+
+    ![0_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/3864c743-063c-47a3-a6f4-1736cea51152)
+
+    ![0_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a4909b7d-f828-46b3-9cd2-c91be3905871)
+
+   
    
 >**1. На 1 ВМ создаем таблицы test для записи, test2 для запросов на чтение.**
 
