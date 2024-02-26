@@ -38,7 +38,7 @@
 
     ![0_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a4909b7d-f828-46b3-9cd2-c91be3905871)
 
-   
+- Далее рестартую на всех нодах для применения параметров Postgres :   ``sudo pg_ctlcluster 15 main restart``   
    
 >**1. На 1 ВМ создаем таблицы test для записи, test2 для запросов на чтение.**
 
