@@ -72,14 +72,6 @@
 
   ![2_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/b180dbe2-4062-460c-8dd7-ac286fa2d958)
 
-  на 1й ВМ подписываюсь на публикацию таблицы ``test2`` 2й ВМ(получаю ворнинг - что публикации нет - да, я еще не создала её):
-
-  ```sql
-  create subscription test_sub2 connection 'host=158.160.145.254 port=5432 user=postgres password=otus_replica_test_1234567 dbname=postgres' publication test_pub2 with (copy_data = true);
-```
-  
-  ![2_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/8f1014d8-43da-4506-b04e-c4b564f8d2eb)
-
 <br/>
 
 >**3. На 2 ВМ создаем таблицы test2 для записи, test для запросов на чтение.**
@@ -116,7 +108,22 @@
 
   ![3_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/4dd5860c-250c-4aab-88f0-f9e076977d48)
 
+  и проверяю командой: 
 
+  ```sql
+  select * from pg_stat_subscription \gx
+  ```
+
+  ![3_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/46808f02-1fc0-46bc-9b6a-575c0f16f891)
+
+
+А теперь на 1й ВМ подписываюсь на публикацию таблицы ``test2`` 2й ВМ и проверяю:
+
+  ```sql
+  create subscription test_sub2 connection 'host=158.160.145.254 port=5432 user=postgres password=otus_replica_test_1234567 dbname=postgres' publication test_pub2 with (copy_data = true);
+```
+
+  ![3_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/99b2cb4d-b3a7-467b-a882-ec2ecad6f3bc)
 
 <br/>
 
