@@ -171,7 +171,7 @@
 
   ![6_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/b3c5dfc8-d48a-4b25-96e3-be88e4e17663)
 
-- Сначала настраиваю  мастер (``otus-db-pg-vm-10-1 [158.160.128.224]``).
+  - Сначала настраиваю  мастер (``otus-db-pg-vm-10-1 [158.160.128.224]``).
   В файле конфигурации ``pg_hba.conf`` прописываю ip-адреса реплик в редакторе : ``nano /etc/postgresql/15/main/pg_hba.conf``:
 
   ``host    replication             postgres        158.160.143.60/32       scram-sha-256``
@@ -180,7 +180,7 @@
 
   ![6_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/f8c1e15b-05c1-43ac-8d89-02690d3605d9)
 
-  -  Устанавливаю уроверь репликации и настраиваю прослушивание входящих IP-адресов командами:
+  - Устанавливаю уроверь репликации и настраиваю прослушивание входящих IP-адресов командами:
 
    ```sql
      alter system set wal_level to 'replica';
@@ -190,8 +190,9 @@
 
   ![6_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/84174d39-d576-4b1f-af12-e7050033b856)
 
-  
+  - Далее рестартую  для применения параметров Postgres :   ``sudo pg_ctlcluster 15 main restart`` 
 
+  ![6_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/518be4ef-f0e2-4a66-bb10-b533fa16a411)
 
 
 
