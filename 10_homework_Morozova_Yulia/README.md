@@ -84,7 +84,14 @@
 
 >**3. На 2 ВМ создаем таблицы test2 для записи, test для запросов на чтение.**
 
+  На 2й ВМ создаю таблицы:
 
+  ```sql
+    create table test (id int, txt char(10));
+    create table test2 (id int, txt char(10));
+  ``` 
+
+  ![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/d6cda55b-441b-4ff0-bbcd-00eef0e819ea)
 
 <br/>
 
