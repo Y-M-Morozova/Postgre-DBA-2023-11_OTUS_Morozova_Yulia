@@ -194,7 +194,16 @@
 
   ![6_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/518be4ef-f0e2-4a66-bb10-b533fa16a411)
 
+  - Создаю для тестов таблицу:
 
+  ```sql
+    create table test_hot as
+    select generate_series(1,12) as id,
+    md5(random()::text)::char(10) as txt
+  ```
+  ![6_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/3037efc1-9a8a-415f-a161-96e514104bc8)
+
+  
 
 ***
 
