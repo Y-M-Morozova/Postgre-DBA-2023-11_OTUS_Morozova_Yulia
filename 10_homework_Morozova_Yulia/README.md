@@ -134,6 +134,22 @@
 
 >**5. 3 ВМ использовать как реплику для чтения и бэкапов (подписаться на таблицы из ВМ №1 и №2 ).**
 
+теперь на 3й ВМ (``otus-db-pg-vm-10-3 [158.160.141.114]``) создаю таблицы и оформляю подписки на таблицы ``test`` 1й ВМ и ``test2`` 2й ВМ:
+
+  ```sql
+    create table test (id int, txt char(10));
+    create table test2 (id int, txt char(10));
+    create subscription test_3_sub2 connection 'host=158.160.145.254 port=5432 user=postgres password=otus_replica_test_1234567 dbname=postgres' publication test_pub2 with (copy_data = true);
+    create subscription test_3_sub connection 'host=158.160.128.224 port=5432 user=postgres password=otus_replica_test_1234567 dbname=postgres' publication test_pub with (copy_data = true);
+  ``` 
+
+все ок:
+
+  ![4_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7337b164-65d6-4330-8027-9d84c3d45209)
+
+  ![4_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/d6676156-ce1c-4c7f-85f6-2e916c342643)
+
+  ![4_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/0a4c3680-e715-4305-8fb3-a99175cf071d)
 
 <br/>
 
