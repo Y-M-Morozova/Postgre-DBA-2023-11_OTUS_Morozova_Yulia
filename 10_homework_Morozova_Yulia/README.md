@@ -97,6 +97,24 @@
 
 >**4. Создаем публикацию таблицы test2 и подписываемся на публикацию таблицы test с ВМ №1.**
 
+  На 2й ВМ добавляю тестовые данные в таблицу ``test2`` и создаю публикацию этой таблицы:
+
+  ```sql
+    insert into test2
+    select generate_series(1,10) as id,
+    md5(random()::text)::char(10) as txt;
+    create publication test_pub2 for table test2;
+  ```
+
+  ![3_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/2f21aa99-d726-494c-9d21-90bad16f4172)
+
+Теперь на 2й ВМ создаю подписку на публикацию таблицы ``test`` 1й ВМ:
+
+```sql
+  create subscription test_sub  connection 'host=158.160.128.224 port=5432 user=postgres password=otus_replica_test_1234567 dbname=postgres' publication test_pub with (copy_data = true);
+```
+
+  ![3_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/4dd5860c-250c-4aab-88f0-f9e076977d48)
 
 
 
