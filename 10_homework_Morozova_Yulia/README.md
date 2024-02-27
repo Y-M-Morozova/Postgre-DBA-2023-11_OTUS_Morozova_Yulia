@@ -27,8 +27,10 @@
   
 - Устанавливаю уровень репликации и настраиваю прослушивание входящих IP-адресов командами:
 
-  ``alter system set wal_level to 'logical';``
-  </br>``alter system set listen_addresses to '*';``
+  ```sql
+    alter system set wal_level to 'logical';
+    alter system set listen_addresses to '*';
+  ```
 
     ![0_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7fc4cb65-bbfc-40c1-a00e-0fc06f31d92e)
 
@@ -178,6 +180,17 @@
 
   ![6_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/f8c1e15b-05c1-43ac-8d89-02690d3605d9)
 
+  -  Устанавливаю уроверь репликации и настраиваю прослушивание входящих IP-адресов командами:
+
+   ```sql
+     alter system set wal_level to 'replica';
+     alter system set listen_addresses to '*';
+     alter system set hot_standby to 'on';
+   ```
+
+  ![6_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/84174d39-d576-4b1f-af12-e7050033b856)
+
+  
 
 
 
