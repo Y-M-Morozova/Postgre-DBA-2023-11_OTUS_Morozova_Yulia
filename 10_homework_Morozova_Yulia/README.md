@@ -237,21 +237,23 @@
 
 - все ок, теперь стартую postgres , проверяю реплику:
 
-  ``sudo pg_ctlcluster 15 main start``
-
-```sql
-  select pg_last_wal_receive_lsn();
-  select pg_last_wal_replay_lsn();
-```
+``sudo pg_ctlcluster 15 main start``
 
 - проверяю мастер:
 
-  ```sql
-  select * from pg_stat_replication \gx
-  select * from pg_current_wal_lsn();
-  ```
+```sql
+select * from pg_stat_replication \gx
+select * from pg_current_wal_lsn();
+```
 
-  
+- проверяю реплику:
+
+```sql
+select * from pg_stat_wal_receiver \gx
+select pg_last_wal_receive_lsn();
+select pg_last_wal_replay_lsn();  
+```
+
   
     
 <br>``  ``
