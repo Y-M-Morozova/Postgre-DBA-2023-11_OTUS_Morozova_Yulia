@@ -235,9 +235,15 @@
 <br>``ls -la``
 <br>``sudo pg_basebackup -P -R -X stream -c fast -h 158.160.128.211 -U postgres -D ./main``
 
+  ![8_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/784008b0-a263-4692-ad11-8dc0ab6e1a08)
+
 - все ок, теперь стартую postgres , проверяю реплику:
 
 ``sudo pg_ctlcluster 15 main start``
+
+  ![8_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/0dd8b22a-797a-4b06-9a69-113ec94edceb)
+
+  ![8_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/29c18e03-e647-42a8-acb0-2a5520467a3c)
 
 - проверяю мастер:
 
@@ -245,6 +251,12 @@
 select * from pg_stat_replication \gx
 select * from pg_current_wal_lsn();
 ```
+
+  ![8_4_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/195ba86e-7445-46c9-94a7-0dc7943d62e7)
+
+  ![8_4_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/8d191d5c-29ee-4c1c-869b-a6949a958678)
+
+  ![8_4_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/9c603f7b-7ac1-4a29-be70-9ba54277b819)
 
 - проверяю реплику:
 
@@ -254,8 +266,8 @@ select pg_last_wal_receive_lsn();
 select pg_last_wal_replay_lsn();  
 ```
 
-  
-    
+  ![8_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/9c54d950-58f9-4afc-bfa4-a1e324763ff3)
+ 
 <br>``  ``
 <br>``  ``
 <br>``  ``
