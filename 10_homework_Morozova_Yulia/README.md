@@ -203,7 +203,17 @@
   ```
   ![6_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/3037efc1-9a8a-415f-a161-96e514104bc8)
 
-  
+  - Теперь настраиваю реплики.
+    
+  На всех трех нодах(репликах) в файле конфигурации ``pg_hba.conf`` прописываю ip-адрес мастера:
 
-***
+  ``host    replication             postgres        158.160.147.25/32       scram-sha-256``
+
+  - и далее устанавливаю уроверь репликации и настраиваю прослушивание входящих IP-адресов командами:
+
+   ```sql
+     alter system set wal_level to 'replica';
+     alter system set listen_addresses to '*';
+     alter system set hot_standby to 'on';
+   ```
 
