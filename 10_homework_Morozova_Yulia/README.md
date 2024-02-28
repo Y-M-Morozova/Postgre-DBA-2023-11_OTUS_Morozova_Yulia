@@ -273,9 +273,27 @@ select pg_last_wal_replay_lsn();
 
   ![bnjuj](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/9ff7cf1d-ec5c-4fdc-8540-aafa69882188)
 
- 
-<br>``  ``
-<br>``  ``
-<br>``  ``
+ Во вопросу - с каким проблемами столкнулась при выполнении- проблемы были:
+ - Так как задание делала несколько дней(интересно и непросто), то ВМ в ЯО выключала. И в следующие дни получала новые ip-адреса, то приходилось их менять :)
+ - А вторая проблема была интереснее. Так как задание со * я выполняла на ВМ, которые ранее использовала как стенды для логической репликации, то при изменении параметров кластера на ``replica`` после рестарта - Postgres  не поднялся. Поэтому вернула ``wal_level``на ``replica`` и удалила все подписки и публикации. В приницпе, это логично. После этого уже смогла развернуть горячий резерв. Использовала для удаления команды(сохраняю к себе в базу знаний):
+
+```sql
+select * from pg_stat_subscription \gx
+ALTER SUBSCRIPTION test_sub2 DISABLE;
+ALTER SUBSCRIPTION test_sub2 SET (slot_name = NONE);
+drop subscription test_sub2;
+
+SELECT * FROM pg_replication_slots ;
+select pg_drop_replication_slot('test_3_sub');
+```   
+
+![error_show_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/be808b4d-73b4-4c4e-bcce-3bdcebc276dc)
+![error_show_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/3a8d4fc8-614b-4887-ac22-c2efb9e5d07d)
+![error_common](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/0b97218d-7cee-4d84-af8f-e94ed858df5b)
+![error_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/04f933b7-64e1-4c46-aa2e-4d3edab78284)
+![error_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/b1a862f1-fddd-4909-acbd-888867572ac3)
+
+***
+
 
 
