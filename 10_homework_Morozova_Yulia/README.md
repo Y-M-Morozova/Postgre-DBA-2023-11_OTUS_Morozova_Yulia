@@ -209,7 +209,7 @@
 
   ``host    replication             postgres        158.160.147.25/32       scram-sha-256``
 
-  - и далее устанавливаю уроверь репликации и настраиваю прослушивание входящих IP-адресов командами:
+  - и далее устанавливаю уровень репликации и настраиваю прослушивание входящих IP-адресов командами:
 
    ```sql
      alter system set wal_level to 'replica';
@@ -221,5 +221,41 @@
 
 ![7_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/93d3361a-9840-446b-aa63-7538ccf5cdaf)
 
+- На всех трех нодах(репликах) останавливаю postgres, архивирую и потом удаляю каталоги с данными, восстанавливаю данные с мастера скриптом:
+
+``sudo pg_ctlcluster 15 main stop``
+<br>``sudo pg_ctlcluster 15 main status``
+<br>``cd /var/lib/postgresql/15``
+<br>``sudo tar -cvzf main_backup-`date +%s`.tgz main``
+<br>``sudo rm -rf /var/lib/postgresql/15/main``
+<br>``ls -la``
+<br>``sudo mkdir main``
+<br>``sudo chmod go-rwx main``
+<br>``sudo chown -R postgres:postgres /var/lib/postgresql/15/main``
+<br>``ls -la``
+<br>``sudo pg_basebackup -P -R -X stream -c fast -h 158.160.128.211 -U postgres -D ./main``
+
+- все ок, теперь стартую postgres , проверяю реплику:
+
+  ``sudo pg_ctlcluster 15 main start``
+
+```sql
+  select pg_last_wal_receive_lsn();
+  select pg_last_wal_replay_lsn();
+```
+
+- проверяю мастер:
+
+  ```sql
+  select * from pg_stat_replication \gx
+  select * from pg_current_wal_lsn();
+  ```
+
   
+  
+    
+<br>``  ``
+<br>``  ``
+<br>``  ``
+
 
