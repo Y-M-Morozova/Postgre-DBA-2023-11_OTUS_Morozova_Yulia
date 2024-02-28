@@ -267,6 +267,12 @@ select pg_last_wal_replay_lsn();
 ```
 
   ![8_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/9c54d950-58f9-4afc-bfa4-a1e324763ff3)
+
+
+Таким образом у меня горячее реплицирование для высокой доступности на 4ВМ:
+
+  ![bnjuj](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/9ff7cf1d-ec5c-4fdc-8540-aafa69882188)
+
  
 <br>``  ``
 <br>``  ``
