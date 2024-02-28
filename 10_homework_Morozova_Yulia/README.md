@@ -217,3 +217,9 @@
      alter system set hot_standby to 'on';
    ```
 
+- рестартую неа всех 3х нодах репликах postgres, проверяю, все ок:
+
+![7_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/93d3361a-9840-446b-aa63-7538ccf5cdaf)
+
+  
+
