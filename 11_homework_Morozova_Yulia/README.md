@@ -31,6 +31,9 @@ select
 from generate_series(1, 100000);
 ```
 
+![0_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/34004f5a-d1de-498a-bb29-10003b021024)
+
+
 
 <br/>  
 
