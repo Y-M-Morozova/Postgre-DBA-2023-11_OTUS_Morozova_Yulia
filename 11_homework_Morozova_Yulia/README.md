@@ -17,11 +17,11 @@
 
 **Выполнение:**
 
-**Подготвительные работы**
+**Подготовительные работы**
 
 ***
 
-Создаю тестовую таблицу ``test`` скриптом:
+- Создаю тестовую таблицу ``test`` скриптом:
 
 ```sql
 create table test as
@@ -35,7 +35,14 @@ from generate_series(1, 100000);
 
 ![0_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/34004f5a-d1de-498a-bb29-10003b021024)
 
+- Собираю статистику по таблице ``test``:
 
+```sql
+    analyze test;
+    select attname, correlation from pg_stats where tablename = 'test';
+```
+
+![0_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/eca810e0-90fa-486b-8401-dc863240304d)
 
 <br/>  
 
