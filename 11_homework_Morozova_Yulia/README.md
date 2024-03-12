@@ -19,6 +19,17 @@
 
 **Подготвительные работы**
 
+Создаю тестовую таблицу ``test`` скриптом:
+
+```sql
+create table test as
+select 
+    generate_series as id
+  , generate_series::text || (random() * 10)::text as txt
+  , (array['first', 'second', 'third', 'four', 'fif'])[floor(random() * 5 + 1)] as array
+  , random() > 0.5 as random_boolean
+from generate_series(1, 20);
+```
 
 
 <br/>  
