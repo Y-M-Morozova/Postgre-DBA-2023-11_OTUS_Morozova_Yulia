@@ -81,9 +81,27 @@ from generate_series(1, 100000);
 
 >**2. Прислать текстом результат команды explain, в которой используется данный индекс**
 
+- Теперь смотрю план выполнения запроса с созданным индексом по полю ``id``:
+```sql
+    explain (analyze,buffers) select id from test where id = 7;
+```
 
+![2_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/60ef049c-4433-43cf-b09f-c2ddd4cab779)
 
-
+```
+test=# explain (analyze,buffers) select id from test where id = 7;
+                                                    QUERY PLAN
+------------------------------------------------------------------------------------------------------------------
+ Index Only Scan using idx_id on test  (cost=0.29..4.31 rows=1 width=4) (actual time=0.022..0.023 rows=1 loops=1)
+   Index Cond: (id = 7)
+   Heap Fetches: 0
+   Buffers: shared hit=1 read=2
+ Planning:
+   Buffers: shared hit=15 read=1 dirtied=2
+ Planning Time: 0.140 ms
+ Execution Time: 0.034 ms
+(8 rows)
+```
 
 <br/>
 
