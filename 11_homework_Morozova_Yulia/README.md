@@ -54,10 +54,11 @@ from generate_series(1, 100000);
 
 - Сначала смотрю план выполнения запроса без индекса по полю ``id``:
 ```sql
-    explain select id from test;
+    explain (analyze,buffers) select id from test;
 ```
 
-![1_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/4e4f92ff-75fe-4781-8252-90571fce75d3)
+![1_1_super](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/896805fd-13a2-4c65-8560-c3c2d3317386)
+
 
 
 <br/>
