@@ -69,6 +69,16 @@ from generate_series(1, 100000);
 
 <br/>
 
+- Теперь создаю индекс по полю ``id``:
+
+```sql
+    create index "idx_id" on test ( id );
+```
+
+![1_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/f671e962-a3c3-49ab-8f76-626d58572fea)
+
+<br/>
+
 >**2. Прислать текстом результат команды explain, в которой используется данный индекс**
 
 
