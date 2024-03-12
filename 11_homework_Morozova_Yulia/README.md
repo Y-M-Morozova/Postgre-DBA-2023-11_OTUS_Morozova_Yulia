@@ -28,7 +28,7 @@ select
   , generate_series::text || (random() * 10)::text as txt
   , (array['first', 'second', 'third', 'four', 'fif'])[floor(random() * 5 + 1)] as array
   , random() > 0.5 as random_boolean
-from generate_series(1, 20);
+from generate_series(1, 100000);
 ```
 
 
