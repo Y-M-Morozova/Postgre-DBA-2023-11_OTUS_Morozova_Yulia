@@ -57,9 +57,15 @@ from generate_series(1, 100000);
     explain (analyze,buffers) select id from test;
 ```
 
-![1_1_super](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/896805fd-13a2-4c65-8560-c3c2d3317386)
+![1_1_super2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e2467507-6443-46d5-a8d7-6c20f5751924)
 
-
+- Ожидаемо вижу, что в данном случае у меня последовательное сканирование по таблице(``seq scan``)
+- Cтоимость получения первой строки = 0
+- ``shared_hit`` (кол-во страниц на диске/в памяти), которые необходимо прочитать = 818 (``relpages``)
+- Cтоимость получения всех строк=shared_hit(818)*seq_page_cost(1)+rows(100000)*cpu_tuple_cost(0.01)=1818
+- Ширина полученного массива данных (width) = 4
+- Время получения (``actual_time``) = первой строки (0.008)...всех строк(8.125)
+- Строк отдано (``rows``) = 100000
 
 <br/>
 
