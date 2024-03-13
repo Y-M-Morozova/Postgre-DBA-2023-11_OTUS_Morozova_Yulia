@@ -109,7 +109,11 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 
 >**3. Реализовать индекс для полнотекстового поиска**
 
+- так как полнотекстный поиск обычно применяют по полям типа text и json, то сначала оценю поиск по полю ``array``:
 
+```sql
+  explain (ANALYZE, BUFFERS) select * from test where array like '%third%';
+```
 
 <br/>
 
