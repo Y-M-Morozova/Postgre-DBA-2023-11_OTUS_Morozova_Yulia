@@ -129,8 +129,13 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 ![3_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/d524626c-7ad1-43ba-abca-d74c79b83392)
 
 
+```sql
+    explain (ANALYZE, BUFFERS) select * from index_test where array_tsvector @@ to_tsquery('third');
+```
 
-  
+![3_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/74ea81e6-b21e-43a4-8557-c9c849bb87d2)
+
+
 <br/>
 
 >**4. Реализовать индекс на часть таблицы или индекс на поле с функцией**
