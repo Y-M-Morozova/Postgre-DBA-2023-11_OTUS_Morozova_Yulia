@@ -112,9 +112,15 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 - так как полнотекстный поиск обычно применяют по полям типа text и json, то сначала оценю поиск по полю ``array``:
 
 ```sql
-  explain (ANALYZE, BUFFERS) select * from test where array like '%third%';
+  explain (ANALYZE, BUFFERS) select * from test where test.array like '%third%';
 ```
+- ожидаемо, вижу, что в данном случае у меня последовательное сканирование по таблице(``seq scan``) и высокая стоимость запроса:
 
+![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/10cdf705-4464-411c-90a5-e08e66612a0e)
+
+
+
+  
 <br/>
 
 >**4. Реализовать индекс на часть таблицы или индекс на поле с функцией**
