@@ -122,8 +122,12 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 
 ```sql
     alter table test add column array_tsvector tsvector;
-    update test set array_tsvector = to_tsvector(test.array);
+    update test set array_tsvector = to_tsvector('english', test.array);
 ```
+
+![3_2_!](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/98e1ca5f-2f10-4cc7-8c5f-2e3b9b25a408)
+
+
   
 <br/>
 
