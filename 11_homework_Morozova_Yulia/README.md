@@ -118,14 +118,16 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 
 ![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/10cdf705-4464-411c-90a5-e08e66612a0e)
 
-- Далее я для индекса создаю столбец типа ``tsvector`` и заполняю данными:
+- Далее я для индекса создаю столбец типа ``tsvector`` , заполняю данными и создаю индекс на поле с типом ``ts_vector``:
 
 ```sql
     alter table test add column array_tsvector tsvector;
     update test set array_tsvector = to_tsvector('english', test.array);
+    create index idx_array_tsvector ON test USING GIN (array_tsvector);
 ```
 
-![3_2_!](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/98e1ca5f-2f10-4cc7-8c5f-2e3b9b25a408)
+![3_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/d524626c-7ad1-43ba-abca-d74c79b83392)
+
 
 
   
