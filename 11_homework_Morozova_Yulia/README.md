@@ -141,7 +141,24 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 
 >**4. Реализовать индекс на часть таблицы или индекс на поле с функцией**
 
+- Создаю частичный индес с устовием ``id``<100:
 
+```sql
+    create index "idx_id_less" on test( id ) where id < 100;
+```
+
+![4_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/826faefc-75d1-4154-b0da-4f09c40e9c57)
+
+- сравниваю разницу в размерах индексов:
+  
+```sql
+    select pg_size_pretty(pg_total_relation_size('idx_id')); 
+    select pg_size_pretty(pg_total_relation_size('idx_id_less')); 
+```
+
+![4_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/03703db5-602a-4efe-bf42-8d6b0577e6c4)
+
+- Да, разница в размерах индексов ощутима.
 
 <br/>
 
@@ -162,15 +179,6 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 
 
 <br/>
-
-***
-**<h3> Задание со * :**
-<br>Реализовать горячее реплицирование для высокой доступности на 4ВМ. 
-</h3>
-
-***
-
-**Выполнение:**
 
 
 ***
