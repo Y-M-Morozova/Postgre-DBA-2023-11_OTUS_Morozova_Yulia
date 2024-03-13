@@ -118,8 +118,12 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 
 ![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/10cdf705-4464-411c-90a5-e08e66612a0e)
 
+- Далее я для индекса создаю столбец типа ``tsvector`` и заполняю данными:
 
-
+```sql
+    alter table test add column array_tsvector tsvector;
+    update test set array_tsvector = to_tsvector(test.array);
+```
   
 <br/>
 
