@@ -143,7 +143,7 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 
 >**4. Реализовать индекс на часть таблицы или индекс на поле с функцией**
 
-- Создаю частичный индес с устовием ``id``<100:
+- Создаю частичный индекс с условием ``id``<100:
 
 ```sql
     create index "idx_id_less" on test( id ) where id < 100;
@@ -166,17 +166,21 @@ test=# explain (analyze,buffers) select id from test where id = 7;
 
 >**5. Создать индекс на несколько полей**
 
+- Сначала смотрю план запроса с условием по двум полям, далее создаю индекс по двум полям и снова анализирую план запроса:
 
+```sql
+    explain (analyze) select * from test where id<1000 and random_boolean = TRUE ;
+    create index "idx_id_random_boolean" on test( id,random_boolean );
+    explain (analyze) select * from test where id<1000 and random_boolean = TRUE ;
+```
+
+![5_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/41019c6e-ab9d-4b8e-bd4d-eab916b9ea6e)
+
+- Вижу, что в первом плане - запрос с высокой стоимостью (ожидаемо, так как в данном случае у меня последовательное сканирование по таблице - ``seq scan``), а после создания индекса вижу, что стоимость запроса существенно ниже и время выполнения меньше, так как план запроса - с индексаным сканированием (``Index Scan``).
 
 <br/>
 
->**6. Написать комментарии к каждому из индексов**
-
-
-
-<br/>
-
->**7. Описать что и как делали и с какими проблемами столкнулись**
+>**Описать что и как делали и с какими проблемами столкнулись**
 
 
 
