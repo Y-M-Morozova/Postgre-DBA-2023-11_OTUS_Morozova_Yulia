@@ -21,9 +21,13 @@
 
 Для выполнения этого домашнего задания я использую демонстрационная базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb
 
-1. Сначала скачиваю эту БД:
+1. Сначала скачиваю архив этойБД и распакую:
 
 ``wget https://edu.postgrespro.ru/demo-small.zip`` 
+</br>``unzip demo-small.zip``
+
+![0_!](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a0ff12f7-5c99-4801-a794-83d0e25bd126)
+
 
 
 <br/>  
