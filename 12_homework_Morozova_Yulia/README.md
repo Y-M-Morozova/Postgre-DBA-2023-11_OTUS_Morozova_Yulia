@@ -21,12 +21,22 @@
 
 Для выполнения этого домашнего задания я использую демонстрационная базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb
 
-1. Сначала скачиваю архив этойБД и распакую:
+1. Сначала скачиваю архив этой БД ``demo`` и распаковываю БД:
 
 ``wget https://edu.postgrespro.ru/demo-small.zip`` 
 </br>``unzip demo-small.zip``
 
 ![0_!](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a0ff12f7-5c99-4801-a794-83d0e25bd126)
+
+2. Далее, согласно инструкции по установке этой БД, запускаю SQL-скрипт ``demo-small-20170815.sql``(он создает бд ``demo`` и наполняет её данными - фактически, это резервная копия, созданная утилитой ``pg_dump``):
+
+```sql
+  \i  demo-small-20170815.sql
+```
+
+![0_7](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/67e4e084-b5a4-42e1-b159-ce57c9efec95)
+
+![0_8](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/75c04d9d-6cd0-4014-839c-e6e1be675036)
 
 
 
