@@ -63,6 +63,8 @@ GROUP BY city,
          airport_name;
 ```
 
+![1_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/ebbb7d60-fd22-40c6-a48a-80ae0f6ca130)
+
 <br/>
 
 >**2. Реализовать левостороннее (или правостороннее) соединение двух или более таблиц.**
