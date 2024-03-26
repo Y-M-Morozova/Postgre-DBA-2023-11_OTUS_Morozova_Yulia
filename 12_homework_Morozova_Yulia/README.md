@@ -21,6 +21,10 @@
 
 Для выполнения этого домашнего задания я использую демонстрационная базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb
 
+1. Сначала скачиваю эту БД:
+
+``wget https://edu.postgrespro.ru/demo-small.zip`` 
+
 
 <br/>  
 
