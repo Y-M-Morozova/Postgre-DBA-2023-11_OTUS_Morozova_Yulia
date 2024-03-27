@@ -70,6 +70,17 @@ GROUP BY city,
 >**2. Реализовать левостороннее (или правостороннее) соединение двух или более таблиц.**
 
 
+Для этого беру запрос, который показывает все вылеты(общее количество) из каждого аэропорта за все время:
+```sql
+SELECT a.airport_name,
+       count(f.flight_id)
+FROM airports a
+LEFT JOIN flights f ON a.airport_code = f.departure_airport
+GROUP BY 1
+ORDER BY 2 DESC;
+```
+
+![2_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/6f8bc8b6-d493-48a9-8caf-c525815a0af1)
 
 <br/>
 
