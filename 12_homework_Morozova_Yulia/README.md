@@ -120,7 +120,21 @@ GROUP BY 1;
 
 >**5. Реализовать запрос, в котором будут использованы разные типы соединений.**
 
+Это задание покажу на запросе, который считает количество пассажиров, которые приобрели билеты, но по каким-то причинам не пришли на регистрацию:
 
+```sql
+SELECT count(*)
+FROM (ticket_flights t
+      JOIN flights f ON t.flight_id = f.flight_id)
+LEFT JOIN boarding_passes b ON t.ticket_no = b.ticket_no
+AND t.flight_id = b.flight_id
+WHERE f.actual_departure IS NOT NULL
+  AND b.flight_id IS NULL;
+```
+
+В БД таких пассажиров нет:
+
+![5_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7d8883c1-ef7f-4e93-9ad9-166b6d4e80f8)
 
 <br/>
 
