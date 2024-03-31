@@ -99,11 +99,22 @@ ORDER BY a1.airport_name;
 
 ![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e46e0698-7703-43aa-bce6-43404c27bc5f)
 
-
 <br/>
 
 >**4. Реализовать полное соединение двух или более таблиц.**
 
+
+Полное соединение реализуем запросом, который показывает количество мест в каждой модели самолета:
+
+```sql
+SELECT a.model,
+       count(s.seat_no)
+FROM seats s
+FULL JOIN aircrafts a ON a.aircraft_code = s.aircraft_code
+GROUP BY 1;
+```
+
+![4_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/c542afb8-df5f-4b9d-b5fe-b531880e370d)
 
 <br/>
 
