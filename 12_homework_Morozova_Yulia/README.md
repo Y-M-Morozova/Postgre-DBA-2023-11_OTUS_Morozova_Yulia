@@ -86,6 +86,18 @@ ORDER BY 2 DESC;
 
 >**3. Реализовать кросс соединение двух или более таблиц.**
 
+Этот тип соединения покажу на запросе , который показывает все возможные направления перелетов из аэропортов:
+
+```sql
+SELECT a1.airport_name,
+       a2.airport_name
+FROM airports a1
+CROSS JOIN airports a2
+WHERE a1.airport_code <> a2.airport_code
+ORDER BY a1.airport_name;
+```
+
+![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e46e0698-7703-43aa-bce6-43404c27bc5f)
 
 
 <br/>
