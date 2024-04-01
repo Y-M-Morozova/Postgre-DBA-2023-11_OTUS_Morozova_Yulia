@@ -75,7 +75,7 @@ GROUP BY city,
          airport_name;
 ```
 
-![1_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/ebbb7d60-fd22-40c6-a48a-80ae0f6ca130)
+![1_10](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a0c27d82-6994-4ea6-b1b5-60581653be88)
 
 <br/>
 
