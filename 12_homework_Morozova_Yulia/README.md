@@ -162,7 +162,7 @@ WHERE f.actual_departure IS NOT NULL
 
 **Выполнение:**
 
-1. Метрика: длительность текущих активных транзакций и запросов.
+**Метрика: длительность текущих активных транзакций и запросов.**
 
 ```sql
 SELECT datname,
@@ -176,7 +176,23 @@ WHERE state = 'active';
 ![7_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/16dc2675-d73f-45b8-8db3-a6c22f9d67a8)
 
 
-2. 
+Эту метрику увидела на просторах интернета, не могла не забрать себе в копилку:
+</br>**Метрика: Определение наиболее нагруженных таблиц.**
+</br>Статистику обращений к таблицам базы данных предоставляет pg_stat_all_tables.
+</br>Представление позволяет оценить, например, общий объём insert, update, delate операций к таблице.
+</br>Определить наиболее часто используемые таблицы в БД можно с помощью запроса:
+
+```sql
+SELECT relname,
+       n_tup_upd+n_tup_ins+n_tup_del AS operationsAmount
+FROM pg_stat_all_tables
+ORDER BY operationsAmount DESC;
+```
+
+![7_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a3fa97e6-004b-48ec-b038-dfe140efe264)
+
+
+
 
 ***
 
