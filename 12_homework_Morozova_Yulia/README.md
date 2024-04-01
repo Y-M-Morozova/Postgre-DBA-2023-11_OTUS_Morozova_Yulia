@@ -19,7 +19,8 @@
 
 **Подготовительные работы**
 
-Для выполнения этого домашнего задания я использую демонстрационная базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb
+Для выполнения этого домашнего задания я использую демонстрационная базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb.
+</br>(Cтруктуры таблиц, для которых выполнялись соединения в моем домашнем задании так же находятся на сайте: https://edu.postgrespro.ru/demo-20161013.pdf).
 
 1. Сначала скачиваю архив этой БД ``demo`` и распаковываю БД:
 
@@ -37,12 +38,6 @@
 ![0_7](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/67e4e084-b5a4-42e1-b159-ce57c9efec95)
 
 ![0_8](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/75c04d9d-6cd0-4014-839c-e6e1be675036)
-
-Прикладываю структуру таблиц, для которых выполнялись соединения в моем домашнем задании(структуры взяты: https://edu.postgrespro.ru/demo-20161013.pdf) :
-
-![0_10](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/146b1d29-f3fb-4e8c-9f95-6b9510805c73)
-
-![0_11](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/770dec2f-592c-4f91-9476-02948fc7493d)
 
 <br/>  
 
