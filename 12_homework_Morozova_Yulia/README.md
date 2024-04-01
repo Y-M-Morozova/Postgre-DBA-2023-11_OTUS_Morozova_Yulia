@@ -162,6 +162,17 @@ WHERE f.actual_departure IS NOT NULL
 
 **Выполнение:**
 
+1. Метрика: длительность текущих активных транзакций и запросов.
+
+```sql
+SELECT datname,
+       usename,
+       now() - xact_start AS TransactionDuration,
+       now() - query_start AS QueryDuration
+FROM pg_stat_activity
+WHERE state = 'active';
+```
+
 
 ***
 
