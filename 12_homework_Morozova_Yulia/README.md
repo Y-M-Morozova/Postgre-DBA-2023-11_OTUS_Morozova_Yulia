@@ -173,6 +173,10 @@ FROM pg_stat_activity
 WHERE state = 'active';
 ```
 
+![7_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/16dc2675-d73f-45b8-8db3-a6c22f9d67a8)
+
+
+2. 
 
 ***
 
