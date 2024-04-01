@@ -69,9 +69,8 @@ SELECT a.city,
        a.airport_name,
        count(f.status)
 FROM airports a
-JOIN flights f
-WHERE a.airport_code = f.departure_airport
-  AND f.scheduled_departure::DATE = '2017-08-21'
+JOIN flights f ON a.airport_code = f.departure_airport
+AND f.scheduled_departure::DATE = '2017-08-21'
 GROUP BY city,
          airport_name;
 ```
