@@ -18,6 +18,25 @@
 
 **Подготовительные работы**
 
+Для выполнения этого домашнего задания я использую демонстрационную базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb.
+</br>(Cтруктуры таблиц, для которых выполнялись соединения в моем домашнем задании так же находятся на сайте: https://edu.postgrespro.ru/demo-20161013.pdf).
+
+1. Сначала скачиваю архив этой БД ``demo`` и распаковываю БД:
+
+``wget https://edu.postgrespro.ru/demo-big.zip`` 
+</br>``unzip demo-big.zip``
+
+![0_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a6d4b958-ad8c-4af9-bcf5-caa54218d273)
+
+2. Далее, согласно инструкции по установке этой БД, запускаю SQL-скрипт ``demo-big-20170815.sql``(он создает бд ``demo`` и наполняет её данными - фактически, это резервная копия, созданная утилитой ``pg_dump``):
+
+```sql
+  \i  demo-big-20170815.sql
+```
+
+![0_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7403ee7d-6de9-4c1a-881e-7f5d83c7261a)
+
+![0_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/fd5e6656-6d07-484d-8c4c-deee5d4e8a5c)
 
 <br/>  
 
