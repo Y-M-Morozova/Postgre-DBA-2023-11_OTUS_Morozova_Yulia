@@ -34,7 +34,7 @@
   \i  demo-big-20170815.sql
 ```
 
-![0_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7403ee7d-6de9-4c1a-881e-7f5d83c7261a)
+![0_2_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a15ec3b4-cfdb-4017-9180-2f10e60194a6)
 
 ![0_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/fd5e6656-6d07-484d-8c4c-deee5d4e8a5c)
 
