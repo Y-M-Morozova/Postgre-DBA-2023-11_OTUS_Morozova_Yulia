@@ -62,10 +62,22 @@ select max(flight_id) from boarding_passes;
 <br/>
 
 
-2. 
+2. Создаю таблицу ``boarding_passes_part`` с секциами, идентичную по схеме оригинальной ``boarding_passes``:
 
+```sql
+CREATE TABLE bookings.boarding_passes_part (
+	ticket_no bpchar(13) NOT NULL,
+	flight_id int4 NOT NULL,
+	boarding_no int4 NOT NULL,
+	seat_no varchar(4) NOT NULL,
+	CONSTRAINT boarding_passes_p_flight_id_boarding_no_key UNIQUE (flight_id, boarding_no),
+	CONSTRAINT boarding_passes_p_flight_id_seat_no_key UNIQUE (flight_id, seat_no),
+	CONSTRAINT boarding_passes_p_pkey PRIMARY KEY (ticket_no, flight_id),
+	CONSTRAINT boarding_passes_p_ticket_no_fkey FOREIGN KEY (ticket_no,flight_id) REFERENCES bookings.ticket_flights(ticket_no,flight_id)
+) PARTITION BY RANGE (flight_id);
+```
 
-
+![1_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a885b390-c2e2-49bd-bf07-a71a46a67145)
 
 <br/>
 
