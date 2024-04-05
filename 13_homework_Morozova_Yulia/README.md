@@ -91,8 +91,11 @@ from (SELECT g as i, g*10000 as ps, (g+1)*10000 as pe FROM generate_series(0, (s
 
 <br/>
 
->**4. **
+4. Так же создаю секцию по умолчанию, чтобы  избежать ошибок и потерь данных:
 
+```sql
+CREATE TABLE bookings.boarding_passes_part_ex PARTITION OF bookings.boarding_passes_part DEFAULT;
+```
 
 
 <br/>
