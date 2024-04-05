@@ -81,8 +81,13 @@ CREATE TABLE bookings.boarding_passes_part (
 
 <br/>
 
->**3. **
+3. Теперь с помощью ``psql`` создаю секции:
 
+```sql
+select 'CREATE TABLE bookings.boarding_passes_part_' || i || ' PARTITION OF bookings.boarding_passes_part FOR VALUES FROM ('|| ps ||') TO ('|| pe ||');'
+from (SELECT g as i, g*10000 as ps, (g+1)*10000 as pe FROM generate_series(0, (select max(bp.flight_id) from boarding_passes bp)/10000) g) sec
+\gexec
+```
 
 <br/>
 
