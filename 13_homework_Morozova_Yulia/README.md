@@ -89,6 +89,8 @@ from (SELECT g as i, g*10000 as ps, (g+1)*10000 as pe FROM generate_series(0, (s
 \gexec
 ```
 
+![1_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/3b3d19ae-285a-485d-97bf-12cac183a502)
+
 <br/>
 
 4. Так же создаю секцию по умолчанию, чтобы  избежать ошибок и потерь данных:
@@ -97,6 +99,7 @@ from (SELECT g as i, g*10000 as ps, (g+1)*10000 as pe FROM generate_series(0, (s
 CREATE TABLE bookings.boarding_passes_part_ex PARTITION OF bookings.boarding_passes_part DEFAULT;
 ```
 
+![1_7](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/41ea4f05-20eb-4a3c-9f3c-ed5e53c78fd1)
 
 <br/>
 
