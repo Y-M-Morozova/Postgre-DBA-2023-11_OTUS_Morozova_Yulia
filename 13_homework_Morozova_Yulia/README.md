@@ -89,6 +89,12 @@ from (SELECT g as i, g*10000 as ps, (g+1)*10000 as pe FROM generate_series(0, (s
 \gexec
 ```
 
+скрипт создаст команды на выполнение:
+
+![1_5_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/918fc195-5ef5-4cb0-96c0-b4431b311234)
+
+и выполняю:
+
 ![1_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/3b3d19ae-285a-485d-97bf-12cac183a502)
 
 <br/>
