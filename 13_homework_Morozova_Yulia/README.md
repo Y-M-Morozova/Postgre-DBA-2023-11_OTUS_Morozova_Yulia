@@ -133,7 +133,7 @@ CREATE TABLE bookings.boarding_passes_part_ex PARTITION OF bookings.boarding_pas
 
 Вижу, что на партицированной таблице запрос выполняется быстрее(``Execution Time: 298.652 ms``), и только по тем секциям, где есть соответствующие строки для выборки, а по исходной таблице выполняется дольше (``Execution Time: 345.739 ms``).
 
-А теперь сравниваю планы запросов с параметром ``enable_partition_pruning`` (устранение секций — это приём оптимизации запросов, который ускоряет работу с декларативно секционированными таблицами.)
+А теперь сравниваю планы запросов по партицированной таблице с параметром ``enable_partition_pruning`` (устранение секций — это приём оптимизации запросов, который ускоряет работу с декларативно секционированными таблицами.)
 Сначала смотрю с включенным(по умолчанию) параметром план запроса:
 
 ```sql
@@ -143,6 +143,7 @@ explain analyze
 select * from boarding_passes_part
 where flight_id > 120000 and flight_id < 125000;
 ```
+![21_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/acf51d94-37a5-4d8a-aa7a-20d9f8dd3db6)
 
 а теперь выключаем устранение секций:
 
@@ -154,10 +155,13 @@ select * from boarding_passes_part
 where flight_id > 120000 and flight_id < 125000;
 ```
 
+![23_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/262dd86b-c68c-4670-a9ee-1873ec589ac4)
+
+![23_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/cf2457e8-6058-48f8-8824-b2a402286282)
+
+Вижу, что с включенным параметром устранения секций план запроса выгоднее - идет сканирвание только по секции , где находятся соответствующие строки и время выполнения меньше (`` Execution Time: 16.490 ms``), а с выключенным - идет сканирвание по всем строкам и время выполнения больше ( ``Execution Time: 22.123 ms``)
 
 <br/>
-
-
 
 ***
 
