@@ -131,6 +131,18 @@ CREATE TABLE bookings.boarding_passes_part_ex PARTITION OF bookings.boarding_pas
 ![17_2_2_full](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/1ee71631-7eea-48f1-96a9-81e291ef0491)
 
 
+Вижу, что на партицированной таблице запрос выполняется быстрее(``Execution Time: 298.652 ms``), и только по тем секциям, где есть соответствующие строки для выборки, а по исходной таблице выполняется дольше (``Execution Time: 345.739 ms``).
+
+А теперь сравниваю планы запросов с параметром ``enable_partition_pruning`` (устранение секций — это приём оптимизации запросов, который ускоряет работу с декларативно секционированными таблицами.)
+Сначала смотрю с включенным(по умолчанию) параметром план запроса:
+
+```sql
+SET enable_partition_pruning = on;
+show enable_partition_pruning;
+explain analyze
+select * from boarding_passes
+where flight_id > 120000 and flight_id < 125000;
+```
 
 
 <br/>
