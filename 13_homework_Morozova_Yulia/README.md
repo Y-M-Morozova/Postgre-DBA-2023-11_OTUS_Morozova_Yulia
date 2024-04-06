@@ -109,23 +109,32 @@ CREATE TABLE bookings.boarding_passes_part_ex PARTITION OF bookings.boarding_pas
 
 <br/>
 
->**5.**
+5. Теперь смотрю и сравниваю планы запросов.
+   Сначала беру запрос по исходной таблице, не партицированной ``boarding_passes`` :
+
+   ```sql
+	explain analyze
+	select * from boarding_passes
+	where flight_id > 120000 and flight_id < 175000;
+   ```
+
+![17_2_2_nopart](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/5d5974be-04c6-46d0-8742-ed59c37c6dc5)
+
+Теперь этот же запрос выполню на партицированной таблице ``boarding_passes_part``:
+
+   ```sql
+	explain analyze
+	select * from boarding_passes_part
+	where flight_id > 120000 and flight_id < 175000;
+   ```
+
+![17_2_2_full](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/1ee71631-7eea-48f1-96a9-81e291ef0491)
+
 
 
 
 <br/>
 
-
-***
-**<h3> Задание со * :**
-<br>Придумайте 3 своих метрики на основе показанных представлений, отправьте их через ЛК, а так же поделитесь с коллегами в слаке. 
-<br> 
-<br>
-</h3>
-
-***
-
-**Выполнение:**
 
 
 ***
