@@ -140,7 +140,17 @@ CREATE TABLE bookings.boarding_passes_part_ex PARTITION OF bookings.boarding_pas
 SET enable_partition_pruning = on;
 show enable_partition_pruning;
 explain analyze
-select * from boarding_passes
+select * from boarding_passes_part
+where flight_id > 120000 and flight_id < 125000;
+```
+
+а теперь выключаем устранение секций:
+
+```sql
+SET enable_partition_pruning = off;
+show enable_partition_pruning;
+explain analyze
+select * from boarding_passes_part
 where flight_id > 120000 and flight_id < 125000;
 ```
 
