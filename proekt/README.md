@@ -21,10 +21,12 @@
 **Вступление**
 
 В ходе выполнения данной проектной работы я использую:
-</br>  1. Готовый сценарий (плейбук) ansible — postgresql_cluster (https://github.com/vitabaks/postgresql_cluster). 
+</br>  1. Сценарий (плейбук) ansible — postgresql_cluster: https://github.com/vitabaks/postgresql_cluster. 
 </br>  2. демонстрационную базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb.
 
+Схема решения  (взята с репозитория: https://github.com/vitabaks/postgresql_cluster и частично отредактированна)
 
+![postgresql_cluster](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e0d2f90d-8d3d-4341-a0cc-e0e0cbb0a1dc)
 
 <br/>  
 
