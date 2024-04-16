@@ -63,14 +63,17 @@
 
 ``nano vars/main.yml``
 
-- Попробуйте подключиться к хостам
+- Пробую подключиться к хостам:
   
 ``ansible all -m ping``
 
+все ок
+
+- Стартую выполнение сценария(``playbook``):
+  
+``ansible-playbook deploy_pgcluster.yml``
 
 
-Run playbook:
-ansible-playbook deploy_pgcluster.yml
 
 
 
