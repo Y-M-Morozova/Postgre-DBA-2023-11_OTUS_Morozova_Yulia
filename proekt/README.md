@@ -5,35 +5,24 @@
 </br>на базе Patroni из репозитория https://github.com/vitabaks/postgresql_cluster.»</h3></div>**
 
 ***
-**<h3>Домашнее задание:
-<br>Секционирование таблицы</h3>**
 
-**<h3>Цель:
-<br> - научиться секционировать таблицы.
-<br> - Секционировать большую таблицу из демо базы flights.</h3>**
+**<h4>Цели проекта:
+<br>  - Изучение отказоустойчивого кластера Patroni на базе PostgreSQL, и сервисов: etcd, pgbouncer, vip-manager.
+</br> - Изучение принципов работы Ansible и синтаксиса Ansible Playbook
+</br> - Развертывание и тестирование кластера PostgreSQL с помощью плейбука ansible: 
+</br>postgresql_cluster (https://github.com/vitabaks/postgresql_cluster).</h4>**
 
 
 ***
 
-**Выполнение:**
 
-**Подготовительные работы**
+**<h3>Выполнение</h3>**
 
-Для выполнения этого домашнего задания я использую демонстрационную базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb.
-</br>(Cтруктуры таблиц, для которых выполнялись соединения в моем домашнем задании так же находятся на сайте: https://edu.postgrespro.ru/demo-20161013.pdf).
+**Вступление**
 
-1. Сначала скачиваю архив этой БД ``demo`` и распаковываю БД:
-
-``wget https://edu.postgrespro.ru/demo-big.zip`` 
-</br>``unzip demo-big.zip``
-
-
-
-2. Далее, согласно инструкции по установке этой БД, запускаю SQL-скрипт ``demo-big-20170815.sql``(он создает бд ``demo`` и наполняет её данными - фактически, это резервная копия, созданная утилитой ``pg_dump``):
-
-```sql
-  \i  demo-big-20170815.sql
-```
+В ходе выполнения данной проектной работы я использую:
+</br>  1. Готовый сценарий (плейбук) ansible — postgresql_cluster (https://github.com/vitabaks/postgresql_cluster). 
+</br>  2. демонстрационную базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb.
 
 
 
