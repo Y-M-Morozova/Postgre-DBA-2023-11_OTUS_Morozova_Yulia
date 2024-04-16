@@ -31,7 +31,6 @@
 <br/>  
 
 Используемые технологии:
-
 - VMware Virtual Platform, OS: Debian 11
 - PostgreSQL 14.11, 16.2
 - Patroni 3.3.0, etcd 3.5.11, vip-manager 2.3.0
