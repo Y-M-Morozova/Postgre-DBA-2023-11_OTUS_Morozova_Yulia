@@ -75,8 +75,13 @@
   
 ``ansible-playbook deploy_pgcluster.yml``
 
+![1_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/8a52593c-e58e-4108-87b5-0d58e1cf2493)
 
+- После установки проверяю состояние кластера:
 
+ `` sudo patronictl -c /etc/patroni/patroni.yml list `` 
+
+![1_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/6e07daee-7121-4191-836a-5ceff4ff2df8)
 
 
 ***
