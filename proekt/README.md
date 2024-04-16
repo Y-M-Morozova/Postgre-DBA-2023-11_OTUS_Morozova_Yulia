@@ -67,7 +67,9 @@
   
 ``ansible all -m ping``
 
-все ок
+все ок:
+
+![1_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/b3158a80-c274-49be-9946-debd95da4a84)
 
 - Стартую выполнение сценария(``playbook``):
   
