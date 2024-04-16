@@ -20,20 +20,18 @@
 
 **Вступление**
 
-В ходе выполнения данной проектной работы я использую:
+В ходе выполнения данной проектной работы я использую: 
 </br>  1. Сценарий (плейбук) ansible — postgresql_cluster: https://github.com/vitabaks/postgresql_cluster. 
 </br>  2. демонстрационную базу данных «Авиаперевозки» : https://postgrespro.ru/education/demodb.
-
-Схема решения - взята с репозитория: https://github.com/vitabaks/postgresql_cluster:
-
-![postgresql_cluster](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e0d2f90d-8d3d-4341-a0cc-e0e0cbb0a1dc)
-
-<br/>  
 
 Используемые технологии:
 - VMware Virtual Platform, OS: Debian 11
 - PostgreSQL 14.11, 16.2
 - Patroni 3.3.0, etcd 3.5.11, vip-manager 2.3.0
+
+Схема решения - взята с репозитория: https://github.com/vitabaks/postgresql_cluster:
+
+![postgresql_cluster](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/ba6b3b32-b5c9-491b-99b7-47063a5a31a4)
 
 <br/>  
 
