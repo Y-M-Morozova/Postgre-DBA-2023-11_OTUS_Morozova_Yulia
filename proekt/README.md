@@ -39,6 +39,38 @@
 
 1.
 
+Разворачиваю кластер согласно инструкции репозитория:
+
+- Установливаю ``Ansible`` на отдельном хосте:
+
+``sudo apt update && sudo apt install -y python3-pip sshpass git``
+``pip3 install ansible``
+
+- Клонирую репозиторий:
+  
+``git clone https://github.com/vitabaks/postgresql_cluster.git``
+
+- Перехожу в каталог ``playbook``:
+
+``cd postgresql_cluster/``
+
+- Редактирую файл инвентаризации ``inventory`` там надо указать IP-адреса хостов кластера и настройки подключения (ansible_user, ansible_ssh_pass или ansible_ssh_private_key_file):
+  
+``nano inventory``
+
+- Редактирую файл переменных ``vars/main.yml`` - там надо указать ``proxy_env`` - для пакетов загрузки с прокси, ``cluster_vip``-  для клиентского доступа к базам данных в кластере с помощью ``vip-manager``, 
+``patroni_cluster_name``, ``postgresql_version``, ``postgresql_data_dir`` with_haproxy_load_balancing 'false' (так как я пока не пользую HAPROXY) , ``dcs_type = "etcd"`` (пока выбираю такой типа dcs) 
+
+``nano vars/main.yml``
+
+- Попробуйте подключиться к хостам
+  
+``ansible all -m ping``
+
+
+
+Run playbook:
+ansible-playbook deploy_pgcluster.yml
 
 
 
