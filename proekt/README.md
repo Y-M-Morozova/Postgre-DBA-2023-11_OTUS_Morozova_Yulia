@@ -90,7 +90,16 @@
 
 ![1_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/285e0045-390b-47af-85f4-48c3508b6f39)
 
+- Далее проверяю ``vip-manager``:
 
+``systemctl status vip-manager``
+</br>``hostname -I``
+</br>``ip a``
+
+![1_6](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/cb613d1f-4460-4c7e-98aa-15d7e0192d0c)
+
+  
+  
 ***
 
 >**Секционирование таблицы**
