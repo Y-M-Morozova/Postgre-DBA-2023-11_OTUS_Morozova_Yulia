@@ -102,17 +102,22 @@
 
  ![111_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/12a9614c-47ea-4394-a153-4a86fccfd1f6)
  
-- Подключаюсь с помощью  dbeaver по 1-му виртуальному ip-адресу на порт 6432(``pgbouncer``):
+- Подключаюсь с помощью  ``dbeaver`` по 1-му виртуальному ip-адресу на порт 6432(``pgbouncer``):
 
-![111_2](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/92d4e08f-9807-4b0b-95bb-919f032949f5)
-  
+![111_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/e2bbdbfb-5c10-4459-85c4-c17895eadc36)
 
+- Теперь для тестов имитирую крах 1й ноды, для этого отправляю её в рестарт ``reboot``, обновляю в  ``dbeaver`` экран, все ок! Так как подключение было по 1-му адресу и порту 6432 и автоматически был совершен переход на другую ноду в кластере, то  ``dbeaver`` краха не замечено, новая БД , таблица и строка - все ок:
   
+![111_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/fc55ccfb-cdb2-43f5-afcf-689fe5560a3d)
+
+- Проверяем состояние кластера - все ок- лидер переехал на 2ю ноду, а 4я после рестарта стала репликой:
+
+![111_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/7c5262d2-75a7-466a-a57b-675abc39522a)
+    
+
+Все ок! 
 ***
 
-<br/>
-
-***
 
 
 
