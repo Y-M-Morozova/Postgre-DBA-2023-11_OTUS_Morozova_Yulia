@@ -83,6 +83,13 @@
 
 ![1_4](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/6e07daee-7121-4191-836a-5ceff4ff2df8)
 
+- Далее проверяю ``pgbouncer``:
+
+``systemctl status pgbouncer``
+</br>``psql --host=localhost -p 6432 -U postgres pgbouncer``  
+
+![1_5](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/285e0045-390b-47af-85f4-48c3508b6f39)
+
 
 ***
 
