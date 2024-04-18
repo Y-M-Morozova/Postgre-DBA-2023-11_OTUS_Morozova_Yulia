@@ -163,7 +163,7 @@ CREATE TRIGGER triger_update_price_goods AFTER UPDATE ON goods FOR EACH row EXEC
 
 **Проверка:**
 
-- Проверяем добавление товара:
+- Проверяю добавление товара:
 
 ```sql
 INSERT INTO goods (goods_id, good_name, good_price) VALUES (3, 'стол офисный', 3500);
@@ -174,6 +174,24 @@ select * from good_sum_mart;
 ```
 
 ![7_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/2261f377-ec62-46bd-88c6-985dbed5978b)
+
+- Проверяю добавление продаж:
+
+```sql
+INSERT INTO sales (good_id, sales_qty) VALUES (1, 200), (2, 4), (3, 2);
+select * from good_sum_mart;
+
+SELECT G.good_name, sum(G.good_price * S.sales_qty)
+FROM goods G
+INNER JOIN sales S ON S.good_id = G.goods_id
+GROUP BY G.good_name;
+```
+
+![7_2!](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/61089627-e50f-4329-acd7-ad32619266e8)
+
+
+
+
 
 
 ***
