@@ -189,6 +189,23 @@ GROUP BY G.good_name;
 
 ![7_2!](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/61089627-e50f-4329-acd7-ad32619266e8)
 
+- Проверяю обновление наименования товара и стоимость:
+
+```sql
+update goods set good_name = 'стол офисный белый', good_price=2000 where goods_id=3;
+select * from goods;
+```
+
+![7_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/1efcb2cf-b37c-4da1-9191-b66c663888c2)
+
+
+
+-- произошло обновление как самого товара, так и пересчёт цен
+select * from good_sum_mart;
+--
+Спички хозайственные	70.50
+Автомобиль Ferrari FXX K	370000000.02
+кофе в зёрнах	7000.00
 
 
 
