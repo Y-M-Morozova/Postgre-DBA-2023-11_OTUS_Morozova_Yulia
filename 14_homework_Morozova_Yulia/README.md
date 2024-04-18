@@ -138,8 +138,26 @@ CREATE TRIGGER triger_update_name_goods BEFORE UPDATE ON goods FOR EACH row EXEC
 
 ![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/902121c4-06cb-4476-b201-d7db0e21f251)
 
+- Теперь создаю триггер для актуализации цен витрины:
 
+```sql
+CREATE OR REPLACE FUNCTION update_price_goods() RETURNS TRIGGER AS
+$BODY$
+begin
+	if  exists (select 1 from good_sum_mart GM inner join goods G on G.good_name=GM.good_name where G.goods_id=old.goods_id)
+	then 
+	update good_sum_mart set sum_sale=(SELECT sum(G.good_price * S.sales_qty) FROM goods G INNER JOIN sales S ON S.good_id = G.goods_id where G.good_name = new.good_name)
+	where good_name=new.good_name;
+	end if;
+	RETURN new;   
+END;
+$BODY$
+language plpgsql;
 
+CREATE TRIGGER triger_update_price_goods AFTER UPDATE ON goods FOR EACH row EXECUTE PROCEDURE update_price_goods();
+```
+
+![4_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a3808f3e-7d42-4840-91e4-1c05f4c65975)
 
 <br/>
 
