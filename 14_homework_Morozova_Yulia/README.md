@@ -194,23 +194,12 @@ GROUP BY G.good_name;
 ```sql
 update goods set good_name = 'стол офисный белый', good_price=2000 where goods_id=3;
 select * from goods;
+select * from good_sum_mart;
 ```
 
-![7_3](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/1efcb2cf-b37c-4da1-9191-b66c663888c2)
+![7_7](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/a8350e07-cb87-4b9e-8c9b-7cc9416cd43c)
 
-
-
--- произошло обновление как самого товара, так и пересчёт цен
-select * from good_sum_mart;
---
-Спички хозайственные	70.50
-Автомобиль Ferrari FXX K	370000000.02
-кофе в зёрнах	7000.00
-
-
-
-
-
+**Все актуализировалось!**
 ***
 **<h3> Задание со * :**
 <br>Чем такая схема (витрина+триггер) предпочтительнее отчета, создаваемого "по требованию" (кроме производительности)?
