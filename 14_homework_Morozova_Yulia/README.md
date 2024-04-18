@@ -81,38 +81,63 @@ CREATE TABLE good_sum_mart
 
 **Выполнение:**
 
+- Сначала вставляю и проверяю имеющиеся данные в таблицу витрины:
 
+```sql
+insert into good_sum_mart (good_name,sum_sale)
+SELECT G.good_name, sum(G.good_price * S.sales_qty)
+FROM goods G
+INNER JOIN sales S ON S.good_id = G.goods_id
+GROUP BY G.good_name;
+select * from good_sum_mart;
+```
 
+![1_0](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/c4a1dc37-5ae8-4583-b8b1-a7189e7601dc)
 
+- Теперь создаю триггер на вставку записей в таблицу ``sales``:
 
+```sql
+CREATE OR REPLACE FUNCTION add_into_sales() RETURNS TRIGGER AS
+$BODY$
+begin
+	if  not exists (select 1 from good_sum_mart GM inner join goods G on G.good_name=GM.good_name where G.goods_id=new.good_id)
+	then 
+	INSERT into good_sum_mart(good_name,sum_sale) select good_name,0 from goods where goods_id=new.good_id;
+	end if;
+	update good_sum_mart set sum_sale=(SELECT sum(G.good_price * S.sales_qty) FROM goods G INNER JOIN sales S ON S.good_id = G.goods_id where G.goods_id = new.good_id)
+	where good_name = (select GM.good_name from good_sum_mart GM inner join goods G on G.good_name=GM.good_name where G.goods_id=new.good_id);
+	RETURN new;   
+END;
+$BODY$
+language plpgsql;
 
+CREATE TRIGGER triger_add_into_sales after INSERT ON sales FOR EACH row EXECUTE PROCEDURE add_into_sales();
+```
 
-
->**1. Реализовать прямое соединение двух или более таблиц.**
-
-
-
+![2_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/714c5caa-a1c4-40e2-b38c-4f4d2761a262)
 
 <br/>
 
->**2. Реализовать левостороннее (или правостороннее) соединение двух или более таблиц.**
+- Теперь создаю триггер для обновления наименования товара в  таблице ``goods``:
 
+```sql
+CREATE OR REPLACE FUNCTION update_name_goods() RETURNS TRIGGER AS
+$BODY$
+begin
+	if  exists (select 1 from good_sum_mart GM inner join goods G on G.good_name=GM.good_name where G.goods_id=old.goods_id)
+	then 
+	update good_sum_mart set good_name = new.good_name where good_name in (select GM.good_name from good_sum_mart GM inner join goods G on G.good_name=GM.good_name where G.goods_id=old.goods_id);	
+	end if;
+	RETURN new;   
+END;
+$BODY$
+language plpgsql;
 
+CREATE TRIGGER triger_update_name_goods BEFORE UPDATE ON goods FOR EACH row EXECUTE PROCEDURE update_name_goods();
+```
 
-<br/>
+![3_1](https://github.com/Y-M-Morozova/Postgre-DBA-2023-11_OTUS_Morozova_Yulia/assets/153178571/902121c4-06cb-4476-b201-d7db0e21f251)
 
->**3. Реализовать кросс соединение двух или более таблиц.**
-
-
-
-<br/>
-
->**4. Реализовать полное соединение двух или более таблиц.**
-
-
-<br/>
-
->**5. Реализовать запрос, в котором будут использованы разные типы соединений.**
 
 
 
@@ -128,7 +153,7 @@ CREATE TABLE good_sum_mart
 
 **Выполнение:**
 
-**Метрика: длительность текущих активных транзакций и запросов.**
+
 
 
 
